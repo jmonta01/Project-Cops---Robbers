@@ -1,0 +1,21 @@
+package com.montydigital.CopsAndRobbers.core.physics{
+	public class PhysicsEngine{
+		
+		public static const BOX2D_ENGINE:String = "b2Engine";
+		
+		public function PhysicsEngine(engineType:String){
+		}
+		
+		public function start():void{
+			
+		}
+		
+		public function stop():void{
+			
+		}
+		
+		public function update():void{
+			
+		}
+	}
+}

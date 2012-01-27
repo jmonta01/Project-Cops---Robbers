@@ -1,0 +1,12 @@
+package com.montydigital.CopsAndRobbers.core.display
+{
+	import starling.display.StSprite;
+	
+	public class Foreground extends StSprite
+	{
+		public function Foreground()
+		{
+			super();
+		}
+	}
+}

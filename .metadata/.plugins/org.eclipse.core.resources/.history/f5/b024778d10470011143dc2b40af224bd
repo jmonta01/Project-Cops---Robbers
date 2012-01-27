@@ -1,0 +1,9 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.node
+{
+	public class Node implements INode
+	{
+		public function Node()
+		{
+		}
+	}
+}

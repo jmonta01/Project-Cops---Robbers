@@ -1,0 +1,64 @@
+package com.montydigital.md2DGameEngine.commands{
+	import com.montydigital.common.events.IMDEvent;
+	import com.montydigital.md2DGameEngine.application.IApplication;
+	import com.montydigital.md2DGameEngine.utilities.collision.DestroyedEvent;
+	import com.montydigital.md2DGameEngine.view.prop.DestructibleProp;
+	import com.montydigital.md2DGameEngine.view.prop.IDestructibleProp;
+	import com.montydigital.md2DGameEngine.view.prop.ParticleProp;
+	import com.montydigital.md2DGameEngine.view.world.MDWorld;
+	
+	import flash.display.Bitmap;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	
+	import starling.textures.Texture;
+	
+	public class DestroyedCommand implements IGameCommand{
+		
+		private var e:DestroyedEvent;
+		
+		private var _application:IApplication;
+		public function get application():IApplication{ return _application; }
+		public function set application(val:IApplication):void{ _application=val; } 
+
+		public function DestroyedCommand(){}
+		
+		public function execute(event:IMDEvent):void{
+			e = event as DestroyedEvent;
+			application.mdWorld.removeDestroyedItem(e.item);
+			e.item.destroy();
+			if(e.item is DestructibleProp){
+				var dProp:DestructibleProp = e.item as DestructibleProp;
+				var numParts:int = Math.min(Math.max(int(Math.ceil(dProp.lastForceMultiplierApplied)) * 4, 4), 16);
+				buildParts(numParts, dProp.getCurrentTexture(), dProp.);
+			}
+			e.item = null;
+		}
+		
+		private function buildParts(count:int, texture:Texture, position:Point):void{
+			var pWidth:Number = texture.width/count;
+			var pHeight:Number = texture.height/count;
+			var region:Rectangle = new Rectangle(0, 0, pWidth, pHeight);
+			;
+
+			var particle:ParticleProp = new ParticleProp(Texture.fromTexture(texture, region), pWidth, pHeight, position);
+		}
+//			var parts:Vector.<DestructibleProp> = new Vector.<DestructibleProp>();
+//			
+//			var _texture:Texture = Texture.fromBitmap(new TempMaps.BoxParticleSpriteSheet());
+//			var _descriptorXML:XML = XML(new TempMaps.BoxParticleSpriteSheetXML());
+//			var _textureAtlas:TextureAtlas = new TextureAtlas(_texture, _descriptorXML); 
+//			var _frames:Vector.<Texture> = _textureAtlas.getTextures();
+//			
+//			var part:DestructibleProp;
+//			
+//			while(parts.length < count+1){
+//				part = new DestructibleProp(_frames[0].width, _frames[0].height, new Point(-20, -20), _frames);
+//				parts.push(part);
+//			}
+//			
+//			return parts;
+//		}
+		
+	}
+}

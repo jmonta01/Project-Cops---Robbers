@@ -1,0 +1,21 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.vo{
+	import Box2D.Collision.Shapes.b2Shape;
+	import Box2D.Dynamics.b2Body;
+	import Box2D.Dynamics.b2BodyDef;
+	import Box2D.Dynamics.b2Fixture;
+	import Box2D.Dynamics.b2FixtureDef;
+
+	public class PhysicsVO{
+		
+		public var bodyDef:b2BodyDef;
+		public var body:b2Body;
+		public var shape:b2Shape;
+		public var fixtureDef:b2FixtureDef;
+		public var fixture:b2Fixture;
+		
+		
+		public function PhysicsVO(){
+		}
+
+	}
+}

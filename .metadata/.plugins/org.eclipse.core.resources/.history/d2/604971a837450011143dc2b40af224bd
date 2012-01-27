@@ -1,0 +1,65 @@
+package com.montydigital.CopsAndRobbers.core.gamePlay{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.GameManager;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.node.GameState;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.AiSystem;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.CollisionSystem;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.GameOrchestrator;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.PhysicsSystem;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.RenderSystem;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.ScoringSystem;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.SystemPriorities;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.system.UserControlsSystem;
+	import com.montydigital.CopsAndRobbers.data.vo.MenuCityVO;
+	import com.montydigital.CopsAndRobbers.data.vo.MenuLevelVO;
+	import com.montydigital.md2DGameEngine.view.abstract.box2d.AbstractBox2dItem;
+	
+	import starling.core.RenderSupport;
+	import starling.display.StSprite;
+	
+	public class Game extends StSprite{
+		
+		private var gameManager:GameManager;
+		private var gameState:GameState;
+		
+		private var paused:Boolean=false;
+		public function isPaused():Boolean{ return paused; }
+		
+		public function Game(){
+			gameManager = new GameManager();
+			gameState = new GameState();
+			
+			gameManager.addSystem(new GameOrchestrator(gameState), SystemPriorities.PRE_UPDATE);
+			gameManager.addSystem(new ScoringSystem(gameState), SystemPriorities.PRE_UPDATE);
+			gameManager.addSystem(new AiSystem(), SystemPriorities.PRE_UPDATE);			
+			gameManager.addSystem(new UserControlsSystem(), SystemPriorities.UPDATE);
+			gameManager.addSystem(new PhysicsSystem(), SystemPriorities.MOVE);			
+			gameManager.addSystem(new CollisionSystem(), SystemPriorities.REOSLVE_COLLISIONS);
+			gameManager.addSystem(new RenderSystem(), SystemPriorities.RENDER);
+		}
+		
+		public function loadLevel(city:MenuCityVO, level:MenuLevelVO):void{
+		//	gameManager.purge();
+			start();
+		}
+		
+		public function restartLevel():void{
+			start();
+		}
+		
+		private function start():void{
+			gameState.score = 0;
+		}
+		
+		public function clearLevel():void{
+			gameManager.purge();
+		}
+		
+		
+		public function togglePause():void{ paused = !paused; }
+		
+		public function update():void{
+			if(!paused)
+				gameManager.update();
+		}
+	}
+}

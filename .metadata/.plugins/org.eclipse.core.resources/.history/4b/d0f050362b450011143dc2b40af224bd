@@ -1,0 +1,17 @@
+package com.montydigital.CopsAndRobbers.ui.common
+{
+	import com.montydigital.CopsAndRobbers.assets.UI;
+	
+	import starling.display.StImage;
+	import starling.display.StSprite;
+	
+	public class PauseBtn extends StSprite
+	{
+		public function PauseBtn()
+		{
+			super();
+			var img:StImage = StImage.fromBitmap(new UI.PauseBtn());
+			this.addChild(img);
+		}
+	}
+}

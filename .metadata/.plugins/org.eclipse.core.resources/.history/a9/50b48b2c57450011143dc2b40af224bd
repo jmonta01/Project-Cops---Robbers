@@ -1,0 +1,12 @@
+package com.montydigital.CopsAndRobbers.core.physics.box2d
+{
+	import Box2D.Dynamics.b2ContactListener;
+	
+	public class CollisionManager extends b2ContactListener
+	{
+		public function CollisionManager()
+		{
+			super();
+		}
+	}
+}

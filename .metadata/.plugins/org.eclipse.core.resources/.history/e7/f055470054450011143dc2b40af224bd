@@ -1,0 +1,33 @@
+package com.montydigital.CopsAndRobbers.core.physics{
+	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Dynamics.b2World;
+
+	public class Box2dEngine implements IPhysicsEngine{
+		
+		private var _b2World:b2World;
+		private var gravityVector:b2Vec2;
+		
+		private var timeStep:Number=1/60;
+		private var velicotyIterator:int=20;
+		private var positionIterator:int=20;		
+		
+		public function Box2dEngine(){
+			gravityVector = new b2Vec2(0, 9.8);			
+			_b2World = new b2World(gravityVector, false);
+//			_b2World.SetContactListener(CollisionManager.getInstance());
+//			_b2World.SetContactFilter(CollisionManager.getInstance().contactFilter);
+		}
+		
+		public function start():void{
+			
+		}
+		
+		public function update():void{
+			
+		}
+		
+		public function stop():void{
+			
+		}
+	}
+}

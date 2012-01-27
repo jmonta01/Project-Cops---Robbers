@@ -1,0 +1,9 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.entity
+{
+	public class Entity
+	{
+		public function Entity()
+		{
+		}
+	}
+}

@@ -1,0 +1,20 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.entity.Entity;
+
+	public class EntityList{
+		 
+		//temporarily use an array -> this will have to become a linkedList
+		
+		
+		public function EntityList(){
+		}
+		
+		public function add(entity:Entity):void{
+			
+		}
+		
+		public function remove(entity:Entity):void{
+			
+		}
+	}
+}

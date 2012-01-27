@@ -1,0 +1,12 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists{
+	import flash.utils.Dictionary;
+
+	public class NodeLists{
+		
+		private var hash:Dictionary;
+		
+		public function NodeLists(){
+			hash = new Dictionary(true);
+		}
+	}
+}

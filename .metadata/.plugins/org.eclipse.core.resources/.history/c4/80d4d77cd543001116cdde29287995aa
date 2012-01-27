@@ -1,0 +1,55 @@
+package com.montydigital.CopsAndRobbers.data
+{
+	public class GameData
+	{
+		public static const MenuDat:JSON = JSON.parse(
+"{
+    cities:{
+        city:[
+            {
+                label:'Chicago',
+                x:591,
+                y:197,
+                flagdir:'up_right'
+            },
+            {
+                label:'San Fransisco',
+                x:17,
+                y:250,
+                flagdir:'up_right'
+            },
+            {
+                label:'New York',
+                x:813,
+                y:174,
+                flagdir:'up_right'
+            },
+            {
+                label:'Miami',
+                x:774,
+                y:525,
+                flagdir:'up_right'
+            },
+            {
+                label:'Washington DC',
+                x:773,
+                y:229,
+                flagdir:'down_right'
+            },
+            {
+                label:'Los Angeles',
+                x:71,
+                y:353,
+                flagdir:'down_right'
+            },
+            {
+                label:'Las Vegas',
+                x:135,
+                y:317,
+                flagdir:'up_right'
+            }
+        ]
+    }
+}");
+	}
+}

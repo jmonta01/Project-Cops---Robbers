@@ -1,0 +1,22 @@
+package com.montydigital.CopsAndRobbers.core.physics{
+
+
+	public class NapeEngine implements IPhysicsEngine{
+		
+		
+		public function NapeEngine(){
+		}
+		
+		public function start():void{
+			
+		}
+		
+		public function update():void{
+			
+		}
+		
+		public function stop():void{
+			
+		}
+	}
+}

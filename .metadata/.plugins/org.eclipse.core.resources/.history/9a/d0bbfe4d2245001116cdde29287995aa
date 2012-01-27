@@ -1,0 +1,16 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.ISystem;
+
+	public class SystemList{
+		public function SystemList(){
+		}
+		
+		public function add(system:ISystem, priority:int):void{
+			
+		}
+		
+		public function removeSystem(system:ISystem):void{
+			
+		}
+	}
+}

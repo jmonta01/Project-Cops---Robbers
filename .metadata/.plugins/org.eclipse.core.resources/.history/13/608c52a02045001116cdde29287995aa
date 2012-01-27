@@ -1,0 +1,24 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.entity
+{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.IEntity;
+	
+	public class Entity implements IEntity
+	{
+		public function Entity()
+		{
+		}
+		
+		public function addComponent(component:Object):void
+		{
+		}
+		
+		public function removeComponent(componentClass:Class):void
+		{
+		}
+		
+		public function getComponent(componentClass:Class):Object
+		{
+			return null;
+		}
+	}
+}

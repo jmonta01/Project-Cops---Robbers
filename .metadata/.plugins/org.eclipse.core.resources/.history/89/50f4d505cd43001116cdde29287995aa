@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cities>
+	<city>
+		<label>Chicago</label>
+		<x>591</x>
+		<y>197</y>
+		<flagDir>up_right</flagDir>
+	</city>
+
+</cities>

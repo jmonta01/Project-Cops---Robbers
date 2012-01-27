@@ -1,0 +1,42 @@
+package com.montydigital.CopsAndRobbers.core.gamePlay{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.GameManager;
+	import com.montydigital.CopsAndRobbers.data.vo.MenuCityVO;
+	import com.montydigital.CopsAndRobbers.data.vo.MenuLevelVO;
+	import com.montydigital.md2DGameEngine.view.abstract.box2d.AbstractBox2dItem;
+	
+	import starling.display.StSprite;
+	
+	public class Game extends StSprite{
+		
+		private var gameManager:GameManager;
+		
+		private var paused:Boolean=false;
+		public function isPaused():Boolean{ return paused; }
+		
+		public function Game(){
+			gameManager = new GameManager();
+		}
+		
+		public function loadLevel(city:MenuCityVO, level:MenuLevelVO):void{
+		//	gameManager.purge();
+		}
+		
+		public function restartLevel():void{
+			
+		}
+		
+		public function clearLevel():void{
+			gameManager.purge();
+		}
+		
+		
+		public function togglePause():void{
+			paused = !paused;
+		}
+		
+		public function update():void{
+			if(!paused)
+				gameManager.update();
+		}
+	}
+}

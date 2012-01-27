@@ -1,0 +1,7 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists
+{
+	public class NodeLists{
+		public function NodeLists(){
+		}
+	}
+}

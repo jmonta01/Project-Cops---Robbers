@@ -1,0 +1,19 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.entity.Entity;
+	
+	import flash.utils.Dictionary;
+
+	public class NodeListCollection{
+		
+		private var nodeLists:Dictionary;
+		
+		public function NodeListCollection(){
+			nodeLists = new Dictionary();
+		}
+		
+		public function addNodesFromEntity(entity:Entity):void{
+			
+		}
+		
+	}
+}

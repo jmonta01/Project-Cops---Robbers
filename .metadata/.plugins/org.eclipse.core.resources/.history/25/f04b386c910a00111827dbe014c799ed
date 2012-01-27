@@ -1,0 +1,229 @@
+package com.montydigital.CopsAndRobbers
+{
+	import Box2D.Collision.Shapes.b2PolygonShape;
+	import Box2D.Collision.b2AABB;
+	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Dynamics.b2Body;
+	import Box2D.Dynamics.b2BodyDef;
+	import Box2D.Dynamics.b2DebugDraw;
+	import Box2D.Dynamics.b2FixtureDef;
+	import Box2D.Dynamics.b2World;
+	
+	import com.montydigital.md2DGameEngine.view.abstract.box2d.AbstractBox2dItem;
+	import com.montydigital.md2DGameEngine.vo.box2d.Box2DItemEnvPropsVO;
+	import com.montydigital.md2DGameEngine.vo.box2d.Box2DItemInitialCoords;
+	
+	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	
+	[SWF(frameRate="30", width="1000", height="800")]	
+	public class Box2dTest extends Sprite{
+		
+		//ratio of pixels to meters
+		// de facto standard is 30 pixels = 1 meter // divide all pixels by ratio to get B2D meter unit
+		private static const RATIO:Number = 30;
+		private static const WALL_THICKNESS:Number = 5;
+		private static const MAX_PROPS:int = 25;
+		
+		private var stageWidth:Number;
+		private var stageHeight:Number;
+		
+		
+		//b2 objects
+		private var world:b2World;
+		
+		
+		public function Box2dTest()
+		{
+			super();
+			this.addEventListener(Event.ADDED_TO_STAGE, handleStageAdded);
+		}
+		
+		private function handleStageAdded(e:Event):void{
+			this.removeEventListener(Event.ADDED_TO_STAGE, handleStageAdded);
+			this.stage.scaleMode = StageScaleMode.NO_SCALE;
+			this.stage.align = StageAlign.TOP_LEFT;
+			this.stageWidth = stage.stageWidth;
+			this.stageHeight = stage.stageHeight;
+			
+			setupWorld();
+			setupEnv();
+			var i:int = 0;
+			while(i < MAX_PROPS){
+				setupProps();
+				i += 1;
+			}
+			
+			setupDebugDraw();
+			trace("body count", world.GetBodyCount());
+			this.addEventListener(Event.ENTER_FRAME, handleFrameLoop);
+			this.stage.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
+		}
+		
+		private function setupWorld():void{
+			//1. Define gravity
+			var gravity:b2Vec2 = new b2Vec2(0, 9.8);			
+			//2. Ignore sleeping objects // ignores objects that have no vel or acc
+			var ignoreSleeping:Boolean = true;
+			//3. Create world object
+			world = new b2World(gravity, ignoreSleeping);		
+		}
+		
+		private function setupEnv():void{
+			
+			//create ground
+			var groundBodyDef:b2BodyDef = new b2BodyDef();
+			groundBodyDef.position.Set(
+										(stageWidth/2)/ RATIO,
+										(stageHeight - WALL_THICKNESS) / RATIO
+										);			
+			var groundBody:b2Body = world.CreateBody(groundBodyDef);
+			
+			var groundBox:b2PolygonShape = new b2PolygonShape();
+			groundBox.SetAsBox(
+								(stageWidth/2) / RATIO - (WALL_THICKNESS/2) / RATIO,
+								WALL_THICKNESS / RATIO
+								);
+			
+			var groundFixtureDef:b2FixtureDef = new b2FixtureDef();
+			groundFixtureDef.shape = groundBox;
+			groundFixtureDef.density = 0.0;
+			groundFixtureDef.friction = .5; 	//0 = sliddy 1 = no sliddy
+			groundFixtureDef.restitution = 0.3; //bounciness 0 = no bounce 1 = superball
+			
+			
+			groundBody.CreateFixture(groundFixtureDef);
+			
+			
+			//create walls			
+			var wallBodyDef:b2BodyDef = new b2BodyDef();
+			wallBodyDef.position.Set(
+										WALL_THICKNESS / RATIO,
+										(stageHeight - WALL_THICKNESS) / RATIO
+									);			
+			/*	var leftWallBody:b2Body = world.CreateBody(wallBodyDef);
+			
+			var leftWallBox:b2PolygonShape = new b2PolygonShape();
+			leftWallBox.SetAsBox(
+									WALL_THICKNESS / RATIO,
+									(stageHeight - WALL_THICKNESS) / RATIO
+								);
+						
+			var leftWallFixtureDef:b2FixtureDef = new b2FixtureDef();
+			leftWallFixtureDef.shape = leftWallBox;
+			leftWallFixtureDef.density = 0.0;
+			leftWallFixtureDef.friction = .5; 	//0 = sliddy 1 = no sliddy
+			leftWallFixtureDef.restitution = 0.3; //bounciness 0 = no bounce 1 = superball						
+			leftWallBody.CreateFixture(leftWallFixtureDef);*/
+			
+						
+			wallBodyDef.position.Set(
+										(stageWidth - WALL_THICKNESS) / RATIO,
+										(stageHeight - WALL_THICKNESS) / RATIO
+									);
+			
+			var rightWallBody:b2Body = world.CreateBody(wallBodyDef);
+			var rightWallBox:b2PolygonShape = new b2PolygonShape();
+			rightWallBox.SetAsBox(
+									WALL_THICKNESS / RATIO,
+									(stageHeight - WALL_THICKNESS) / RATIO				
+								);
+			
+			var rightWallFixtureDef:b2FixtureDef = new b2FixtureDef();
+			rightWallFixtureDef.shape = rightWallBox;
+			rightWallFixtureDef.density = 0.0;
+			rightWallFixtureDef.friction = .5; 	//0 = sliddy 1 = no sliddy
+			rightWallFixtureDef.restitution = 0.3; //bounciness 0 = no bounce 1 = superball						
+			rightWallBody.CreateFixture(rightWallFixtureDef);
+		}
+		
+		private var counter:int = 0;
+		private function setupProps():void{
+			var width:Number = randomInt(40, 70) / RATIO;
+			var height:Number = randomInt(40, 70) / RATIO;
+			var verts:Array;
+			if(counter % 2 == 0){
+				verts = [new b2Vec2(0, 0), new b2Vec2(width, 0), new b2Vec2(width, height), new b2Vec2(0, height)]; //b2Vec2
+			}else{
+				verts = [new b2Vec2(0, 0), new b2Vec2(width, 0), new b2Vec2(width, height)]; //b2Vec2
+			}
+			var initCoords:Box2DItemInitialCoords = new Box2DItemInitialCoords(800 / RATIO, 600 / RATIO, 0);
+			var props:Box2DItemEnvPropsVO = new Box2DItemEnvPropsVO(1, .5, .2);
+			
+			new AbstractBox2dItem().set(world, verts, initCoords, props);
+			
+			counter+=1;
+		}
+		
+		private function handleKeyDown(e:KeyboardEvent):void{
+			if(e.charCode == 32)
+				setupProps();
+		}
+		
+		private function handleClick(e:MouseEvent):void{
+			shootProjectileAt(e.stageX, e.stageY);
+		}
+		
+		private function shootProjectileAt(x:Number, y:Number):void{
+			var width:Number = 20 / RATIO;
+			var height:Number = 5 / RATIO;
+			var verts:Array = [new b2Vec2(0, 0), new b2Vec2(width, 0), new b2Vec2(width, height), new b2Vec2(0, height)]; //b2Vec2
+			
+			var initCoords:Box2DItemInitialCoords = new Box2DItemInitialCoords(10 / RATIO, 600 / RATIO, 0);
+			var props:Box2DItemEnvPropsVO = new Box2DItemEnvPropsVO(1, .3, .3, true);		
+			var bullet:AbstractBox2dItem = new AbstractBox2dItem(); 
+			bullet.set(world, verts, initCoords, props);
+			bullet.body.ApplyImpulse(new b2Vec2(5, 0), new b2Vec2(600 / RATIO, 600 / RATIO));
+		}
+
+		
+		private function handleFrameLoop(e:Event):void{
+			updateWorld();
+		}
+		
+		private function updateWorld():void{
+			var timeStep:Number = 1 / 30;
+			var velIter:int = 6;
+			var posIter:int = 6;
+			
+			world.Step(timeStep, velIter, posIter);
+			//world.Step();
+			world.ClearForces();		
+			world.DrawDebugData();
+		}
+		
+		
+		private function setupDebugDraw():void{
+			var previewSprite:Sprite = new Sprite();
+			this.addChild(previewSprite);
+			
+			var clickCatcher:Sprite = new Sprite();
+			clickCatcher.graphics.beginFill(0x000000, 0);
+			clickCatcher.graphics.drawRect(0, 0, this.stageWidth, this.stageHeight);
+			clickCatcher.graphics.endFill();
+			this.addChild(clickCatcher);
+			clickCatcher.addEventListener(MouseEvent.CLICK, handleClick);
+
+			
+			var debugDraw:b2DebugDraw = new b2DebugDraw();
+			debugDraw.SetSprite(previewSprite);
+			debugDraw.SetDrawScale(RATIO);
+			debugDraw.SetFlags(b2DebugDraw.e_shapeBit);
+			debugDraw.SetLineThickness(2);
+			debugDraw.SetFillAlpha(.6);
+			world.SetDebugDraw(debugDraw);
+		}
+		
+		private function randomInt(lowVal:int, highVal:int):int{
+			if ( lowVal <= highVal){
+				return (lowVal + Math.floor(Math.random() * ( highVal - lowVal + 1)));
+			}else{
+				throw (new Error("Main.randomInt(...) lowVal exceeds highVal"));
+			}
+		}
+	}
+}

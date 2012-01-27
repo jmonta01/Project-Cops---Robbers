@@ -1,0 +1,32 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.entity.Entity;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.vo.PositionVO;
+	import com.montydigital.CopsAndRobbers.core.entityFramework.vo.RenderVO;
+	
+	public class EntityCreator{
+		
+		private var gameManager:GameManager;
+		
+		public function EntityCreator(gameManager:GameManager){
+			this.gameManager = gameManager;
+		}
+		
+		public function createBox(x:Number, y:Number):void{
+			var box:Entity = new Entity();
+			
+			var position:PositionVO = new PositionVO();
+			position.x = x;
+			position.y = y;
+			position.rotation = 0;
+			box.addComponent(position);
+			
+			var display:RenderVO = new RenderVO();
+		}
+		
+		public function destroyEntity(entity:Entity):void{
+			gameManager.removeEntity(entity);
+		}
+		
+		
+	}
+}

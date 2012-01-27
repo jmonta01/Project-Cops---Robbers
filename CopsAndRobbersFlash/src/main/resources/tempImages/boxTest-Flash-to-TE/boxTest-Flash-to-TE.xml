@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:49d7b4be50090d4a4332824f740d9e9e$ -->
+<TextureAtlas imagePath="boxTest-Flash-to-TE.png">
+    <SubTexture name="boxTest-Flash-to-TE.swf/0000" x="104" y="308" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0001" x="104" y="206" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0002" x="104" y="104" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0003" x="410" y="2" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0004" x="308" y="2" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0005" x="206" y="2" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0006" x="104" y="2" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0007" x="2" y="410" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0008" x="2" y="308" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0009" x="2" y="206" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0010" x="2" y="104" width="100" height="100"/>
+    <SubTexture name="boxTest-Flash-to-TE.swf/0011" x="2" y="2" width="100" height="100"/>
+</TextureAtlas>

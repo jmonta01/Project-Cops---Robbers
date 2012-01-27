@@ -1,0 +1,36 @@
+package com.montydigital.CopsAndRobbers.data{
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
+
+	[Event(name=COMPLETE, type="flash.events.Event")]
+	public class GameData extends EventDispatcher{
+		
+		public static const COMPLETE:String = "gameDataLoadcomplete";
+		
+		public static var MenuData:Object;
+		
+		private var loader:URLLoader;
+		
+		public function GameData():void{
+			loader = new URLLoader();
+			loader.dataFormat = URLLoaderDataFormat.TEXT;
+		}
+		
+		public function loadMenuData():void{
+			loader.addEventListener(Event.COMPLETE, handleMenuDataComplete);
+			loader.load(new URLRequest("/data/MenuData.json"));
+		}
+		
+		protected function handleMenuDataComplete(event:Event):void{
+			loader.removeEventListener(Event.COMPLETE, handleMenuDataComplete);
+			MenuData = JSON.parse(loader.data as String);
+			// TODO Auto-generated method stub
+			this.dispatchEvent(
+		}		
+		
+		
+	}
+}

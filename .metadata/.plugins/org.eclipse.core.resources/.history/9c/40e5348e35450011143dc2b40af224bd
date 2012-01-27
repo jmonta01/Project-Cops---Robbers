@@ -1,0 +1,20 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.system
+{
+	import com.montydigital.CopsAndRobbers.core.entityFramework.node.GameState;
+	import com.montydigital.gameEngine.core.system.ISystem;
+	
+	public class GameOrchestrator implements ISystem
+	{
+		public function GameOrchestrator(gameState:GameState){
+		}
+		
+		public function enter():void{
+		}
+		
+		public function update():void{
+		}
+		
+		public function exit():void{
+		}
+	}
+}

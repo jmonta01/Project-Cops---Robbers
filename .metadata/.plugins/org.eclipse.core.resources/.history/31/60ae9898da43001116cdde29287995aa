@@ -1,0 +1,23 @@
+package com.montydigital.CopsAndRobbers{
+	
+	import com.montydigital.CopsAndRobbers.core.CnR_GameRoot;
+	
+	import flash.display.Sprite;
+	
+	import starling.core.Starling;
+	
+	[SWF(frameRate="60", width="1200", height="600")]	
+	public class GameEngineSetup extends Sprite{
+		
+		private var _starling:Starling;
+		
+		public function GameEngineSetup(){			
+			super();
+		}
+		
+		private function initStarling():void{
+			_starling = new Starling(CnR_GameRoot, stage);
+			_starling.start();
+		}
+	}
+}

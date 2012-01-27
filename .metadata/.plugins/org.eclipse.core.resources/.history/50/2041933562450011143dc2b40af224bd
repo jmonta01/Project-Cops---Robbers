@@ -1,0 +1,26 @@
+package com.montydigital.CopsAndRobbers.core.entityFramework.lists{
+	import flash.utils.Dictionary;
+	
+	public class Family{
+		
+		private var nodeClass:Class;
+		private var nodes:NodeList;
+		private var entites:Dictionary;
+		private var components:Dictionary;
+		
+		public function Family(nodeClass:Class){
+			this.nodeClass = nodeClass;
+			init();
+		}
+		
+		private function init():void{
+			nodes = new NodeList();
+			entites = new Dictionary();
+			
+			components = new Dictionary();
+			var node:* = new nodeClass();
+			
+			var variables:XMLList = describeType(nodeClass)
+		}
+	}
+}
