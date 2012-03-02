@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.display
-{
-	public class GameLevel
-	{
-		public function GameLevel()
-		{
-		}
-	}
-}

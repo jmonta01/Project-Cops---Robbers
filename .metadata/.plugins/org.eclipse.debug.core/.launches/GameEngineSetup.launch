@@ -2,7 +2,7 @@
 <launchConfiguration type="com.adobe.flexbuilder.debug.launchConfigurationType.flash">
 <stringAttribute key="com.adobe.flexbuilder.debug.ATTR_APPLICATION" value="src/main/flex/com/montydigital/CopsAndRobbers/GameEngineSetup.as"/>
 <stringAttribute key="com.adobe.flexbuilder.debug.ATTR_PROJECT" value="CopsAndRobbersFlash"/>
-<stringAttribute key="com.adobe.flexbuilder.debug.ATTR_RUN_URL" value="file:/H:/My%20Graphic%20Projects/projectCopsAndRobbers/CopsAndRobbersFlash/bin-debug/CopsAndRobbersMain.html"/>
+<stringAttribute key="com.adobe.flexbuilder.debug.ATTR_RUN_URL" value="file:/H:/My%20Graphic%20Projects/projectCopsAndRobbers/CopsAndRobbersFlash/bin-debug/GameEngineSetup.html"/>
 <booleanAttribute key="com.adobe.flexbuilder.debug.ATTR_USE_DEFAULT_URLS" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/CopsAndRobbersFlash"/>

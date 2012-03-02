@@ -1,8 +1,0 @@
-package com.montydigital.gameEngine.core.utility{
-	
-	public class FileLoader{
-		
-		public function FileLoader(){
-		}
-	}
-}

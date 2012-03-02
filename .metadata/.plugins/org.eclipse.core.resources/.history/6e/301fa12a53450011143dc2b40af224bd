@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.physics
-{
-	public class IPhysicsEngine
-	{
-		public function IPhysicsEngine()
-		{
-		}
-	}
-}

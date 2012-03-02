@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.entityFramework.system
-{
-	public class SystemPriorities
-	{
-		public function SystemPriorities()
-		{
-		}
-	}
-}

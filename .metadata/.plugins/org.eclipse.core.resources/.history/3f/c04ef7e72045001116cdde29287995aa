@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.entityFramework.lists
-{
-	public class EntityList
-	{
-		public function EntityList()
-		{
-		}
-	}
-}

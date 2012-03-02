@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.entityFramework
-{
-	public interface ISystem
-	{
-		function update(time:Number):void;
-		function start();
-		
-	}
-}

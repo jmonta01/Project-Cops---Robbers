@@ -1,9 +1,0 @@
-package com.montydigital.CopsAndRobbers.core.entityFramework.vo
-{
-	public class DisplayVO
-	{
-		public function DisplayVO()
-		{
-		}
-	}
-}
