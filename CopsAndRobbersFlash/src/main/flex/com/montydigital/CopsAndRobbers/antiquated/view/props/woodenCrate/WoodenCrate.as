@@ -1,6 +1,6 @@
 package com.montydigital.CopsAndRobbers.antiquated.view.props.woodenCrate
 {
-	import com.montydigital.md2DGameEngine.view.prop.DestructibleProp;
+	import com.montydigital.CopsAndRobbers.antiquated.view.props.DestructibleProp;
 	
 	import flash.geom.Point;
 	

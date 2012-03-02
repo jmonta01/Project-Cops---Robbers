@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.montydigital.md2DGameEngine.utilities.Box2dUtilities"/>
+    <classEntry path="com.montydigital.md2DGameEngine.view.abstract.starling.IAbstractStarlingItem"/>
+    <classEntry path="com.montydigital.md2DGameEngine.view.actor.IActor"/>
+    <classEntry path="com.montydigital.md2DGameEngine.vo.box2d.Box2DItemInitialCoords"/>
+    <classEntry path="com.montydigital.md2DGameEngine.view.world.MDStarlingWorld"/>
+    <classEntry path="com.montydigital.md2DGameEngine.events.world.MDWorldReadyEvent"/>
+    <classEntry path="com.montydigital.md2DGameEngine.application.IApplication"/>
+    <classEntry path="com.montydigital.md2DGameEngine.initializers.IMDGameInitializer"/>
+    <classEntry path="com.montydigital.md2DGameEngine.initializers.MDGameAbstractInitializer"/>
+    <classEntry path="com.montydigital.md2DGameEngine.controller.CentralController"/>
+    <classEntry path="com.montydigital.md2DGameEngine.commands.CollisionCommand"/>
+    <classEntry path="com.montydigital.md2DGameEngine.controller.GameAbstractController"/>
+    <classEntry path="com.montydigital.md2DGameEngine.commands.DestroyedCommand"/>
+    <classEntry path="com.montydigital.md2DGameEngine.events.world.MDWorldLockedEvent"/>
+    <classEntry path="com.montydigital.gameEngine.fsm.GameRoot"/>
+    <classEntry path="com.montydigital.gameEngine.fsm.states.IState"/>
+    <classEntry path="com.montydigital.gameEngine.fsm.stateMachine.StateMachine"/>
+    <classEntry path="com.montydigital.gameEngine.fsm.system.ISystem"/>
+    <classEntry path="com.montydigital.gameEngine.fsm.states.SystemState"/>
+    <classEntry path="com.montydigital.gameEngine.core.states.PropState"/>
+    <classEntry path="com.montydigital.gameEngine.core.agent.Agent"/>
+    <classEntry path="com.montydigital.gameEngine.utility.FileLoader"/>
+    <classEntry path="com.montydigital.gameEngine.display.LayerManager"/>
+    <classEntry path="com.montydigital.gameEngine.display.GameLayer"/>
+    <classEntry path="com.montydigital.gameEngine.display.ForegroundLayer"/>
+    <classEntry path="com.montydigital.gameEngine.display.TargetingLayer"/>
+    <classEntry path="com.montydigital.gameEngine.display.BackgroundLayer"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.node.INode"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.system.System"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.entity.EntityList"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.input.UserIntentCapture"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.entity.Entity"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.entity.IEntity"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.system.SystemPriorities"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.family.Family"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.GameManager"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.system.SystemList"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.system.ISystem"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.node.Node"/>
+    <classEntry path="com.montydigital.gameEngine.entityFramework.node.NodeList"/>
+    <classEntry path="com.montydigital.gameEngine.utility.MeasurementUtil"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

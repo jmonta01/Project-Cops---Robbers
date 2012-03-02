@@ -1,9 +1,7 @@
 package com.montydigital.CopsAndRobbers.data.vo{
-	import com.montydigital.common.vo.IValueObject;
-	
 	import flash.geom.Point;
 	
-	public class MenuCityVO implements IValueObject{
+	public class MenuCityVO{
 		
 		public var id:String;
 		public var label:String;

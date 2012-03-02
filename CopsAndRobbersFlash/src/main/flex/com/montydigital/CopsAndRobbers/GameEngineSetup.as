@@ -1,8 +1,8 @@
 package com.montydigital.CopsAndRobbers{
 	
-	import com.montydigital.CopsAndRobbers.core.CnR_GameRoot;
-	import com.montydigital.CopsAndRobbers.core.physics.Box2dEngine;
-	import com.montydigital.CopsAndRobbers.data.GameData;
+	import com.montydigital.CopsAndRobbers.engine.CnR_GameRoot;
+	import com.montydigital.CopsAndRobbers.engine.physics.Box2dEngine;
+	import com.montydigital.CopsAndRobbers.data.LevelData;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -13,12 +13,12 @@ package com.montydigital.CopsAndRobbers{
 	public class GameEngineSetup extends Sprite{
 		
 		private var _starling:Starling;
-		private var data:GameData;
+		private var data:LevelData;
 		
 		public function GameEngineSetup(){			
 			super();
-			data = new GameData();
-			data.addEventListener(GameData.COMPLETE, preloadComplete);
+			data = LevelData.getInstance();
+			data.addEventListener(LevelData.COMPLETE, preloadComplete);
 			data.loadMenuData();
 			
 			Box2dEngine.debugSprite = this;
@@ -31,6 +31,7 @@ package com.montydigital.CopsAndRobbers{
 		
 		private function initStarling():void{
 			_starling = new Starling(CnR_GameRoot, stage);
+			_starling.antiAliasing = 16;
 			_starling.start();
 		}
 		

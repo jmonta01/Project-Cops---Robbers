@@ -11,7 +11,6 @@ package com.montydigital.CopsAndRobbers.antiquated.view.props
 	import com.montydigital.md2DGameEngine.view.abstract.AbstractProp;
 	import com.montydigital.md2DGameEngine.view.abstract.box2d.AbstractBox2dItem;
 	import com.montydigital.md2DGameEngine.view.abstract.starling.AbstractStarlingItem;
-	import com.montydigital.md2DGameEngine.view.prop.IProp;
 	import com.montydigital.md2DGameEngine.view.world.MDB2World;
 	import com.montydigital.md2DGameEngine.vo.box2d.Box2DItemEnvPropsVO;
 	import com.montydigital.md2DGameEngine.vo.box2d.Box2DItemInitialCoords;

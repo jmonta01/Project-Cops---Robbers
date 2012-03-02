@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:340a8e20610f197ea3fa6800555fb3b4$ -->
+<TextureAtlas imagePath="boxTest-Flash-to-TE-particle.png">
+    <SubTexture name="boxTest-Flash-TE-particle" x="2" y="2" width="48" height="54"/>
+</TextureAtlas>
